@@ -1,228 +1,322 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Guía Completa de Instalación de Windows 11</title>
+    <title>Guía Definitiva de Instalación de Windows 11</title>
+    
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" xintegrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+
     <style>
+        /* Estilos base y personalizados */
         body {
             font-family: 'Inter', sans-serif;
+            background-color: #111827; /* gray-900 */
+            color: #d1d5db; /* gray-300 */
         }
+
+        /* Animación de entrada */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in-up {
+            animation: fadeInUp 0.6s ease-out forwards;
+            opacity: 0; /* Elementos empiezan ocultos */
+        }
+
+        /* Efecto de hover mejorado para las tarjetas (sin destello) */
+        .card-hover {
+            transition: transform 0.3s ease, border-color 0.3s ease;
+            border: 1px solid rgb(255 255 255 / 0.1); /* Borde inicial sutil */
+        }
+
         .card-hover:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-        }
-        .tool-card {
-            background-color: #374151; /* gray-700 */
-            border-radius: 0.75rem; /* rounded-lg */
-            padding: 1.5rem; /* p-6 */
-            transition: all 0.3s ease;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-        }
-        .tool-card .icon {
-            height: 64px;
-            width: 64px;
-            margin-bottom: 1rem;
-            color: #ffffff;
-            font-size: 56px;
-            line-height: 64px;
-            display: inline-block;
-            vertical-align: middle;
-        }
-         .tool-card .icon-img {
-            height: 64px;
-            width: 64px;
-            margin-bottom: 1rem;
-            object-fit: contain;
-        }
-        .tool-card h4 {
-            font-weight: 700;
-            color: #FFFFFF;
-            margin-bottom: 0.5rem;
-        }
-        .tool-card p {
-            font-size: 0.875rem; /* text-sm */
-            color: #D1D5DB; /* gray-300 */
-            flex-grow: 1;
-            margin-bottom: 1rem;
-        }
-        .tool-card a {
-            margin-top: auto;
-            width: 100%;
+            transform: translateY(-8px);
+            border-color: rgba(34, 211, 238, 0.4); /* Borde cian al pasar el cursor */
         }
     </style>
 </head>
-<body class="bg-gray-900 text-gray-200">
+<body class="bg-gray-900">
 
-    <div class="container mx-auto p-4 md:p-8">
-        
-        <!-- Header -->
-        <header class="text-center mb-10">
-            <h1 class="text-4xl md:text-5xl font-bold text-white mb-2">Guía de Instalación de Windows 11</h1>
-            <p class="text-lg text-cyan-400">Todo lo necesario para una instalación limpia y funcional.</p>
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12">
+
+        <!-- Encabezado Principal -->
+        <header class="text-center mb-12 md:mb-16 fade-in-up">
+            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white mb-3">
+                Guía Definitiva de Instalación de Windows 11
+            </h1>
+            <p class="text-lg sm:text-xl text-cyan-400 max-w-3xl mx-auto">
+                Desde la descarga hasta la configuración final. Todo lo que necesitas para una instalación perfecta y optimizada.
+            </p>
         </header>
 
-        <!-- Main Content -->
-        <main class="space-y-12">
+        <main class="space-y-16">
 
-            <!-- Windows Download Section -->
-            <section id="download-windows" class="bg-gray-800 p-6 rounded-xl shadow-lg">
-                <h2 class="text-3xl font-bold text-white mb-4 border-b-2 border-cyan-500 pb-2">1. Descarga de la Imagen ISO de Windows</h2>
-                <p class="mb-4 text-gray-300">
-                    El primer paso es obtener el archivo de instalación de Windows, conocido como imagen ISO. El siguiente enlace proporciona acceso a varias versiones de Windows, incluyendo <strong class="text-cyan-400">Windows 11 IoT Enterprise LTSC</strong>.
+            <!-- Paso 1: Descarga de la Imagen ISO -->
+            <section id="download-windows" class="bg-gray-800/50 backdrop-blur-sm p-6 sm:p-8 rounded-2xl shadow-2xl ring-1 ring-white/10 fade-in-up" style="animation-delay: 100ms;">
+                <div class="flex items-center gap-4 mb-4">
+                    <div class="bg-cyan-500/10 text-cyan-400 rounded-lg p-3 flex-shrink-0">
+                        <i data-lucide="download-cloud" class="w-7 h-7"></i>
+                    </div>
+                    <h2 class="text-2xl sm:text-3xl font-bold text-white">Paso 1: Descargar la Imagen ISO de Windows</h2>
+                </div>
+                <p class="mb-4 text-gray-400 leading-relaxed">
+                    El primer paso es obtener el archivo de instalación de Windows, conocido como imagen ISO. Te recomendamos descargar una versión oficial y limpia. El siguiente enlace te llevará a una fuente fiable para descargar <strong class="text-cyan-300 font-semibold">Windows 11 IoT Enterprise LTSC</strong>, una versión estable y sin bloatware.
                 </p>
-                <p class="mb-4 text-gray-300">
-                    Asegúrate de descargar la versión correcta para tus necesidades. Los archivos se descargan a través de enlaces magnet, por lo que necesitarás un cliente de torrent como qBittorrent o uTorrent.
+                <p class="mb-6 text-gray-400 leading-relaxed">
+                    Estos archivos se distribuyen mediante enlaces magnet, por lo que necesitarás un cliente de torrent como <a href="https://www.qbittorrent.org/download.php" target="_blank" rel="noopener noreferrer" class="text-cyan-400 hover:underline">qBittorrent</a>.
                 </p>
-                <a href="https://massgrave.dev/windows_ltsc_links" target="_blank" class="inline-block bg-emerald-600 text-white font-bold py-3 px-6 rounded-lg hover:bg-emerald-700 transition-colors text-lg">
-                    Ir a Página de Descargas
+                <a href="https://massgrave.dev/windows_ltsc_links" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 bg-cyan-600 text-white font-bold py-3 px-6 rounded-lg hover:bg-cyan-700 transition-colors text-base shadow-lg shadow-cyan-500/20">
+                    <i data-lucide="external-link" class="w-5 h-5"></i>
+                    Ir a la Página de Descargas
                 </a>
             </section>
 
-            <!-- Rufus Section -->
-            <section id="rufus" class="bg-gray-800 p-6 rounded-xl shadow-lg">
-                <h2 class="text-3xl font-bold text-white mb-4 border-b-2 border-cyan-500 pb-2">2. Rufus: Creación de USB Booteable</h2>
-                <div class="flex flex-col md:flex-row gap-6 items-center">
-                    <div class="flex-shrink-0">
-                        <a href="https://rufus.ie/es/" target="_blank" title="Descargar Rufus" class="bg-gray-700 w-24 h-24 rounded-lg flex items-center justify-center transition-transform duration-300 transform hover:scale-110">
-                            <span class="material-symbols-outlined text-white" style="font-size: 64px;">
-                                security_key
-                            </span>
-                        </a>
+            <!-- Paso 2: Creación de USB Booteable con Rufus -->
+            <section id="rufus" class="bg-gray-800/50 backdrop-blur-sm p-6 sm:p-8 rounded-2xl shadow-2xl ring-1 ring-white/10 fade-in-up" style="animation-delay: 200ms;">
+                 <div class="flex items-center gap-4 mb-4">
+                    <div class="bg-cyan-500/10 text-cyan-400 rounded-lg p-3 flex-shrink-0">
+                       <i data-lucide="usb" class="w-7 h-7"></i>
                     </div>
+                    <h2 class="text-2xl sm:text-3xl font-bold text-white">Paso 2: Crear tu USB de Instalación con Rufus</h2>
+                </div>
+                <p class="mb-6 text-gray-400 leading-relaxed">
+                    Rufus es la herramienta por excelencia para crear unidades USB de arranque. Tomará la imagen ISO que descargaste y la preparará en una memoria USB, convirtiéndola en el medio de instalación de Windows 11.
+                </p>
+                <div class="bg-gray-900/70 p-6 rounded-lg ring-1 ring-white/10">
+                    <h3 class="text-xl font-semibold text-white mb-4">Cómo usar Rufus:</h3>
+                    <ol class="list-decimal list-inside space-y-3 text-gray-300">
+                        <li>Descarga la última versión de Rufus desde su <a href="https://rufus.ie/es/" target="_blank" rel="noopener noreferrer" class="text-cyan-400 hover:underline font-semibold">página oficial</a> (la versión portable es ideal).</li>
+                        <li>Inserta una memoria USB de al menos 8 GB. <strong class="text-red-400 bg-red-500/10 px-2 py-1 rounded">¡Atención! Este proceso borrará todos los datos del USB.</strong></li>
+                        <li>Abre Rufus. En "Dispositivo", asegúrate de que esté seleccionada tu memoria USB.</li>
+                        <li>Haz clic en <strong class="text-white">"SELECCIONAR"</strong> y elige el archivo ISO de Windows 11 que descargaste.</li>
+                        <li>Confirma que el "Esquema de partición" sea <strong class="text-cyan-300">GPT</strong> y el "Sistema de destino" sea <strong class="text-cyan-300">UEFI (no CSM)</strong>.</li>
+                        <li>Presiona <strong class="text-white">"EMPEZAR"</strong>. Aparecerá una ventana crucial: aquí puedes <strong class="text-yellow-300">eliminar los requisitos de TPM 2.0, Secure Boot y 4GB de RAM</strong>, ideal para PCs más antiguos.</li>
+                        <li>Acepta la advertencia final y espera a que el proceso termine. Cuando la barra se ponga verde y diga "PREPARADO", tu USB estará listo.</li>
+                    </ol>
+                </div>
+            </section>
+
+            <!-- Paso 3: Componentes Esenciales Post-Instalación -->
+            <section id="post-install" class="fade-in-up" style="animation-delay: 300ms;">
+                 <div class="flex items-center gap-4 mb-4">
+                    <div class="bg-cyan-500/10 text-cyan-400 rounded-lg p-3 flex-shrink-0">
+                        <i data-lucide="puzzle" class="w-7 h-7"></i>
+                    </div>
+                    <h2 class="text-2xl sm:text-3xl font-bold text-white">Paso 3: Instalar Componentes Esenciales</h2>
+                </div>
+                <p class="mb-6 text-gray-400 leading-relaxed max-w-4xl">
+                    Con Windows ya instalado, es vital añadir ciertos paquetes y runtimes para asegurar que todos tus programas y juegos funcionen sin errores y con el máximo rendimiento.
+                </p>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- Visual C++ Card -->
+                    <div class="card-hover bg-gray-800 p-6 rounded-xl flex flex-col fade-in-up" style="animation-delay: 400ms;">
+                        <h3 class="text-xl font-bold text-white mb-2">Visual C++ Runtimes (AIO)</h3>
+                        <p class="text-gray-400 flex-grow mb-4">Instala todas las librerías de Visual C++ de una vez. Imprescindible para evitar errores de "DLL faltante" en muchísimos programas y juegos.</p>
+                        <a href="https://www.techpowerup.com/download/visual-c-redistributable-runtime-package-all-in-one/" target="_blank" rel="noopener noreferrer" class="mt-auto text-center bg-gray-700 text-white font-semibold py-2 px-4 rounded-lg hover:bg-gray-600 transition-colors">Descargar Paquete</a>
+                    </div>
+                    <!-- DirectX Card -->
+                    <div class="card-hover bg-gray-800 p-6 rounded-xl flex flex-col fade-in-up" style="animation-delay: 500ms;">
+                        <h3 class="text-xl font-bold text-white mb-2">DirectX End-User Runtime</h3>
+                        <p class="text-gray-400 flex-grow mb-4">Aunque Windows 11 trae DirectX 12, muchos juegos antiguos dependen de versiones anteriores (9, 10, 11). Este instalador web añade solo los archivos necesarios.</p>
+                        <a href="https://www.microsoft.com/en-us/download/details.aspx?id=35" target="_blank" rel="noopener noreferrer" class="mt-auto text-center bg-gray-700 text-white font-semibold py-2 px-4 rounded-lg hover:bg-gray-600 transition-colors">Descargar DirectX</a>
+                    </div>
+                    <!-- .NET Framework Card -->
+                    <div class="card-hover bg-gray-800 p-6 rounded-xl flex flex-col fade-in-up" style="animation-delay: 600ms;">
+                        <h3 class="text-xl font-bold text-white mb-2">.NET Framework 3.5</h3>
+                        <p class="text-gray-400 flex-grow mb-4">Componente necesario para aplicaciones más antiguas. Windows 11 no lo incluye por defecto, pero se puede activar fácilmente con este instalador.</p>
+                        <a href="https://www.microsoft.com/en-us/download/details.aspx?id=21" target="_blank" rel="noopener noreferrer" class="mt-auto text-center bg-gray-700 text-white font-semibold py-2 px-4 rounded-lg hover:bg-gray-600 transition-colors">Descargar .NET 3.5</a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Paso 4: Software y Herramientas Recomendadas -->
+            <section id="software-recomendado" class="fade-in-up" style="animation-delay: 400ms;">
+                 <div class="flex items-center gap-4 mb-4">
+                    <div class="bg-cyan-500/10 text-cyan-400 rounded-lg p-3 flex-shrink-0">
+                        <i data-lucide="layout-grid" class="w-7 h-7"></i>
+                    </div>
+                    <h2 class="text-2xl sm:text-3xl font-bold text-white">Paso 4: Software y Herramientas Útiles</h2>
+                </div>
+                <p class="mb-8 text-gray-400 leading-relaxed max-w-4xl">
+                    Equipa tu nuevo sistema con el mejor software. Aquí tienes una selección de programas esenciales y herramientas de diagnóstico para una experiencia completa.
+                </p>
+                <div id="tools-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                    <!-- Las tarjetas de herramientas se insertarán aquí con JavaScript -->
+                </div>
+            </section>
+            
+            <!-- Paso 5: Pasos Finales y Optimización -->
+             <section id="final-steps" class="bg-gray-800/50 backdrop-blur-sm p-6 sm:p-8 rounded-2xl shadow-2xl ring-1 ring-white/10 fade-in-up" style="animation-delay: 500ms;">
+                 <div class="flex items-center gap-4 mb-6">
+                    <div class="bg-cyan-500/10 text-cyan-400 rounded-lg p-3 flex-shrink-0">
+                       <i data-lucide="check-check" class="w-7 h-7"></i>
+                    </div>
+                    <h2 class="text-2xl sm:text-3xl font-bold text-white">Paso 5: Pasos Finales y Recomendaciones</h2>
+                </div>
+                 <div class="space-y-6">
+                    <!-- Instalar Microsoft Store -->
                     <div>
-                        <p class="mb-4 text-gray-300">
-                           Rufus es una utilidad esencial y de confianza para formatear y crear unidades flash USB de arranque. Su función principal es tomar el archivo de imagen ISO de Windows 11 y prepararlo correctamente en una memoria USB. Esto convierte una simple memoria en una llave de instalación desde la cual tu PC puede arrancar para comenzar a instalar el sistema operativo.
-                        </p>
-                        <h3 class="text-xl font-semibold text-white mb-2">Pasos para usar Rufus:</h3>
-                        <ol class="list-decimal list-inside space-y-2 text-gray-300">
-                            <li>Descarga Rufus desde su <a href="https://rufus.ie/es/" target="_blank" class="text-cyan-400 hover:underline">página oficial</a>. Es un ejecutable portable, no requiere instalación.</li>
-                            <li>Inserta una memoria USB (mínimo 8 GB). <strong class="text-red-400">¡Atención! Todos los datos en la memoria USB serán eliminados permanentemente.</strong></li>
-                            <li>Abre Rufus. Automáticamente debería detectar tu memoria USB en el campo "Dispositivo".</li>
-                            <li>Junto a "Elección de arranque", haz clic en el botón **"SELECCIONAR"** y busca el archivo ISO de Windows 11 que descargaste.</li>
-                            <li>Verifica que las opciones sean: "Esquema de partición" <strong class="text-cyan-400">GPT</strong> y "Sistema de destino" <strong class="text-cyan-400">UEFI (no CSM)</strong>. Son las correctas para hardware moderno y Windows 11.</li>
-                            <li>Haz clic en **"EMPEZAR"**. Aparecerá una ventana de "Experiencia de usuario de Windows". Aquí puedes <strong class="text-yellow-400">eliminar requisitos como el de 4GB de RAM, Secure Boot y TPM 2.0</strong>, muy útil para PCs no compatibles.</li>
-                            <li>Confirma la advertencia de borrado de datos y espera a que la barra de progreso se complete y muestre "PREPARADO". ¡Tu USB de instalación está listo!</li>
+                        <h3 class="font-semibold text-white text-lg mb-2">Instalar Microsoft Store (Opcional)</h3>
+                        <p class="mb-3 text-gray-400">Si tu versión de Windows no incluye la Store, puedes instalarla manualmente. Abre <strong class="text-cyan-300">PowerShell como Administrador</strong> y ejecuta este comando:</p>
+                        <div class="bg-gray-900 rounded-lg p-4 font-mono text-sm text-green-400 overflow-x-auto relative group">
+                            <pre><code>Get-AppXPackage -AllUsers -Name Microsoft.WindowsStore | Foreach {Add-AppxPackage -DisableDevelopmentMode -Register "$($_.InstallLocation)\AppXManifest.xml" -Verbose}</code></pre>
+                            <button onclick="copyCommand(this)" class="absolute top-2 right-2 bg-gray-700 text-gray-300 p-2 rounded-md opacity-0 group-hover:opacity-100 transition-opacity" aria-label="Copiar comando">
+                                <i data-lucide="copy" class="w-4 h-4 copy-icon"></i>
+                                <i data-lucide="check" class="w-4 h-4 hidden text-green-400 check-icon"></i>
+                            </button>
+                        </div>
+                    </div>
+                     
+                    <!-- Drivers del Fabricante -->
+                    <div>
+                        <h3 class="font-semibold text-white text-lg mb-2">Instalar Drivers del Fabricante</h3>
+                        <p class="text-gray-400">Visita la web del fabricante de tu placa base (ASUS, Gigabyte, MSI, etc.) y descarga los drivers más recientes, especialmente los del <strong class="text-cyan-300">Chipset</strong>. Esto es crucial para la estabilidad y rendimiento del sistema.</p>
+                    </div>
+
+                    <!-- Windows Update -->
+                    <div>
+                        <h3 class="font-semibold text-white text-lg mb-2">Ejecutar Windows Update</h3>
+                        <p class="text-gray-400">Una vez tengas los drivers principales, ve a <strong class="text-cyan-300">Configuración > Windows Update</strong> y busca actualizaciones. Esto instalará parches de seguridad importantes y puede que encuentre drivers de otros componentes.</p>
+                    </div>
+                 </div>
+            </section>
+
+            <!-- Paso 6: Optimización Avanzada con Chris Titus Tech Tool -->
+             <section id="chris-titus-tool" class="bg-gray-800/50 backdrop-blur-sm p-6 sm:p-8 rounded-2xl shadow-2xl ring-1 ring-white/10 fade-in-up" style="animation-delay: 600ms;">
+                 <div class="flex items-center gap-4 mb-6">
+                    <div class="bg-cyan-500/10 text-cyan-400 rounded-lg p-3 flex-shrink-0">
+                       <i data-lucide="rocket" class="w-7 h-7"></i>
+                    </div>
+                    <h2 class="text-2xl sm:text-3xl font-bold text-white">Paso 6: Optimización Avanzada con Chris Titus Tech Tool</h2>
+                </div>
+                 <div class="space-y-6">
+                    <div>
+                        <p class="mb-3 text-gray-400 leading-relaxed">Para una optimización y personalización más profunda, puedes usar la aclamada herramienta <strong class="text-white">Chris Titus Tech Windows Utility</strong>. Este script te permite desinstalar bloatware, instalar programas esenciales, aplicar tweaks de rendimiento y mucho más, todo desde una interfaz sencilla.</p>
+                        <h3 class="font-semibold text-white text-lg mb-2">Cómo ejecutar la herramienta:</h3>
+                         <ol class="list-decimal list-inside space-y-2 text-gray-300">
+                            <li>Haz clic derecho en el menú de Inicio y selecciona <strong class="text-cyan-300">Terminal (Administrador)</strong> o <strong class="text-cyan-300">PowerShell (Administrador)</strong>.</li>
+                            <li>Copia y pega el siguiente comando en la terminal y presiona Enter.</li>
                         </ol>
                     </div>
-                </div>
-            </section>
-
-            <!-- Post-Installation Section -->
-            <section id="post-install" class="bg-gray-800 p-6 rounded-xl shadow-lg">
-                <h2 class="text-3xl font-bold text-white mb-4 border-b-2 border-cyan-500 pb-2">3. Componentes Esenciales Post-Instalación</h2>
-                <p class="mb-6 text-gray-300">Una vez instalado Windows, es crucial instalar ciertos paquetes y controladores para garantizar la máxima compatibilidad y rendimiento de tus aplicaciones y juegos.</p>
-                
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    
-                    <!-- Visual C++ Card -->
-                    <div class="bg-gray-700 p-6 rounded-lg transition-all duration-300 card-hover flex flex-col">
-                        <h3 class="text-2xl font-bold text-white mb-3">Visual C++ Runtimes (AIO)</h3>
-                        <p class="mb-4 text-gray-300 flex-grow">
-                            Muchísimos programas y juegos están desarrollados con Microsoft Visual C++. Este paquete instala todas las versiones necesarias, desde 2005 hasta la más reciente, para evitar errores de librerías faltantes.
-                        </p>
-                        <a href="https://www.techpowerup.com/download/visual-c-redistributable-runtime-package-all-in-one/" target="_blank" class="mt-auto inline-block bg-cyan-600 text-white font-bold py-2 px-4 rounded-lg hover:bg-cyan-700 transition-colors text-center">
-                            Descargar Paquete All-in-One
-                        </a>
-                    </div>
-
-                    <!-- DirectX Card -->
-                    <div class="bg-gray-700 p-6 rounded-lg transition-all duration-300 card-hover flex flex-col">
-                        <h3 class="text-2xl font-bold text-white mb-3">DirectX End-User Runtime</h3>
-                        <p class="mb-4 text-gray-300 flex-grow">
-                            Aunque Windows 11 incluye DirectX 12, muchos juegos y aplicaciones antiguas requieren versiones anteriores (9, 10 u 11). El instalador web de Microsoft detecta y añade solo los archivos que falten.
-                        </p>
-                        <a href="https://www.microsoft.com/en-us/download/details.aspx?id=35" target="_blank" class="mt-auto inline-block bg-cyan-600 text-white font-bold py-2 px-4 rounded-lg hover:bg-cyan-700 transition-colors text-center">
-                            Descargar Instalador Web de DirectX
-                        </a>
-                    </div>
-
-                    <!-- .NET Framework Card -->
-                    <div class="bg-gray-700 p-6 rounded-lg transition-all duration-300 card-hover flex flex-col">
-                        <h3 class="text-2xl font-bold text-white mb-3">.NET Framework 3.5</h3>
-                        <p class="mb-4 text-gray-300 flex-grow">
-                           Algunas aplicaciones, especialmente las más antiguas, necesitan esta versión específica del .NET Framework. Windows 11 no lo trae activado por defecto. Puedes activarlo desde las características de Windows o usar el instalador offline.
-                        </p>
-                        <a href="https://www.microsoft.com/en-us/download/details.aspx?id=21" target="_blank" class="mt-auto inline-block bg-cyan-600 text-white font-bold py-2 px-4 rounded-lg hover:bg-cyan-700 transition-colors text-center">
-                            Descargar .NET 3.5 (Offline)
-                        </a>
-                    </div>
-
-                </div>
-            </section>
-
-            <!-- Recommended Software Section -->
-            <section id="software-recomendado" class="bg-gray-800 p-6 rounded-xl shadow-lg">
-                <h2 class="text-3xl font-bold text-white mb-4 border-b-2 border-cyan-500 pb-2">4. Software y Herramientas Recomendadas</h2>
-                <p class="mb-8 text-gray-300">Aquí tienes una lista de software útil y herramientas de diagnóstico/mantenimiento que te recomendamos instalar para sacar el máximo provecho a tu PC.</p>
-                
-                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mb-12">
-                    
-                    <!-- Tarjetas de herramientas -->
-                    <div class="tool-card card-hover"><img src="https://cdn.simpleicons.org/brave/ffffff" alt="Logo de Brave" class="icon-img"><h4>Brave Browser</h4><p>Navegador rápido y seguro con bloqueador de anuncios y rastreadores integrado.</p><a href="https://brave.com/es/download/" target="_blank" class="inline-block bg-cyan-600 text-white font-bold py-2 px-4 rounded-lg hover:bg-cyan-700 transition-colors">Descargar</a></div>
-                    <div class="tool-card card-hover"><img src="https://cdn.simpleicons.org/vlcmediaplayer/ffffff" alt="Logo de VLC" class="icon-img"><h4>VLC Media Player</h4><p>Reproductor multimedia que soporta casi todos los formatos de video y audio sin necesidad de codecs.</p><a href="https://www.videolan.org/vlc/index.es.html" target="_blank" class="inline-block bg-cyan-600 text-white font-bold py-2 px-4 rounded-lg hover:bg-cyan-700 transition-colors">Descargar</a></div>
-                    <div class="tool-card card-hover"><img src="https://img.icons8.com/color/96/winrar.png" alt="Logo de WinRAR" class="icon-img"><h4>WinRAR</h4><p>Potente compresor y descompresor de archivos, esencial para manejar ficheros .rar y .zip.</p><a href="https://www.win-rar.com/download.html?&L=1" target="_blank" class="inline-block bg-cyan-600 text-white font-bold py-2 px-4 rounded-lg hover:bg-cyan-700 transition-colors">Descargar</a></div>
-                    <div class="tool-card card-hover"><i class="fa-solid fa-magnifying-glass icon"></i><h4>Everything</h4><p>Herramienta de búsqueda de archivos y carpetas por nombre increíblemente rápida.</p><a href="https://www.voidtools.com/downloads/" target="_blank" class="inline-block bg-cyan-600 text-white font-bold py-2 px-4 rounded-lg hover:bg-cyan-700 transition-colors">Descargar</a></div>
-                    <div class="tool-card card-hover"><img src="https://cdn.simpleicons.org/steam/ffffff" alt="Logo de Steam" class="icon-img"><h4>Steam</h4><p>La plataforma de videojuegos para PC más grande del mundo. Compra, descarga y juega.</p><a href="https://store.steampowered.com/about/" target="_blank" class="inline-block bg-cyan-600 text-white font-bold py-2 px-4 rounded-lg hover:bg-cyan-700 transition-colors">Descargar</a></div>
-                    <div class="tool-card card-hover"><img src="https://cdn.simpleicons.org/epicgames/ffffff" alt="Logo de Epic Games" class="icon-img"><h4>Epic Games Store</h4><p>Tienda de videojuegos que regala juegos todas las semanas y es casa de títulos como Fortnite.</p><a href="https://store.epicgames.com/es-ES/download" target="_blank" class="inline-block bg-cyan-600 text-white font-bold py-2 px-4 rounded-lg hover:bg-cyan-700 transition-colors">Descargar</a></div>
-                    <div class="tool-card card-hover"><img src="https://cdn.simpleicons.org/obsstudio/ffffff" alt="Logo de OBS Studio" class="icon-img"><h4>OBS Studio</h4><p>Software gratuito y de código abierto para grabación de video y transmisión en vivo.</p><a href="https://obsproject.com/es" target="_blank" class="inline-block bg-cyan-600 text-white font-bold py-2 px-4 rounded-lg hover:bg-cyan-700 transition-colors">Descargar</a></div>
-                    <div class="tool-card card-hover"><i class="fa-solid fa-hard-drive icon"></i><h4>CrystalDiskInfo</h4><p>Monitorea el estado de salud y la temperatura de tus unidades de disco duro y SSD.</p><a href="https://crystalmark.info/en/download/#CrystalDiskInfo" target="_blank" class="inline-block bg-cyan-600 text-white font-bold py-2 px-4 rounded-lg hover:bg-cyan-700 transition-colors">Descargar</a></div>
-                    <div class="tool-card card-hover"><img src="https://cdn.simpleicons.org/nvidia/ffffff" alt="Logo de NVIDIA" class="icon-img"><h4>NVIDIA Drivers</h4><p>Descarga los drivers más recientes para tu tarjeta gráfica NVIDIA para el mejor rendimiento.</p><a href="https://www.nvidia.com/Download/index.aspx" target="_blank" class="inline-block bg-cyan-600 text-white font-bold py-2 px-4 rounded-lg hover:bg-cyan-700 transition-colors">Descargar</a></div>
-                    <div class="tool-card card-hover"><i class="fa-solid fa-eraser icon"></i><h4>Display Driver Uninstaller (DDU)</h4><p>Herramienta para eliminar por completo los drivers de video y evitar conflictos.</p><a href="https://www.guru3d.com/download/display-driver-uninstaller-download/" target="_blank" class="inline-block bg-cyan-600 text-white font-bold py-2 px-4 rounded-lg hover:bg-cyan-700 transition-colors">Descargar</a></div>
-                    <div class="tool-card card-hover"><i class="fa-solid fa-gears icon"></i><h4>NVIDIA Profile Inspector</h4><p>Herramienta avanzada para modificar perfiles y configuraciones ocultas de los drivers NVIDIA.</p><a href="https://github.com/Orbmu2k/nvidiaProfileInspector/releases" target="_blank" class="inline-block bg-cyan-600 text-white font-bold py-2 px-4 rounded-lg hover:bg-cyan-700 transition-colors">Descargar</a></div>
-                    <div class="tool-card card-hover"><i class="fa-solid fa-memory icon"></i><h4>Reduce Memory</h4><p>Libera memoria RAM de procesos en segundo plano y del caché del sistema con un solo clic.</p><a href="https://www.sordum.org/9197/reduce-memory-v1-7/" target="_blank" class="inline-block bg-cyan-600 text-white font-bold py-2 px-4 rounded-lg hover:bg-cyan-700 transition-colors">Descargar</a></div>
-                    <div class="tool-card card-hover"><i class="fa-solid fa-microchip icon"></i><h4>RAMMap</h4><p>Utilidad avanzada de Sysinternals para analizar el uso de la memoria física en detalle.</p><a href="https://learn.microsoft.com/es-es/sysinternals/downloads/rammap" target="_blank" class="inline-block bg-cyan-600 text-white font-bold py-2 px-4 rounded-lg hover:bg-cyan-700 transition-colors">Descargar</a></div>
-
-                </div>
-
-                <!-- Microsoft Store Section -->
-                <div class="mt-8">
-                    <h3 class="text-2xl font-bold text-white mb-3">Instalar Microsoft Store</h3>
-                    <p class="mb-4 text-gray-300">Si tu versión de Windows no incluye la Microsoft Store, puedes intentar instalarla manualmente. Abre <strong class="text-cyan-400">Windows PowerShell como Administrador</strong> (clic derecho en el botón de inicio) y ejecuta el siguiente comando:</p>
-                    <div class="bg-gray-900 rounded-lg p-4 font-mono text-sm text-green-400 overflow-x-auto">
-                        <code>Get-AppXPackage -AllUsers -Name Microsoft.WindowsStore | Foreach {Add-AppxPackage -DisableDevelopmentMode -Register "$($_.InstallLocation)\AppXManifest.xml" -Verbose}</code>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Other Recommendations Section -->
-            <section id="drivers" class="bg-gray-800 p-6 rounded-xl shadow-lg">
-                <h2 class="text-3xl font-bold text-white mb-4 border-b-2 border-cyan-500 pb-2">5. Otros Pasos y Recomendaciones</h2>
-                <ul class="space-y-4 text-gray-300">
-                    <li class="flex items-start gap-4">
-                        <svg class="w-6 h-6 text-cyan-400 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M12 6V3m0 18v-3M5.636 5.636l1.414 1.414m10.95 10.95l1.414 1.414M19.364 5.636l-1.414 1.414M4.636 19.364l-1.414-1.414"></path></svg>
-                        <div>
-                            <h4 class="font-semibold text-white text-lg">Instalar Drivers del Fabricante</h4>
-                            <p>Además de los de NVIDIA/AMD, ve a la página web del fabricante de tu tarjeta madre (ASUS, Gigabyte, MSI, etc.) para descargar los últimos drivers, especialmente los del <strong class="text-cyan-400">chipset</strong>.</p>
+                    <div>
+                        <p class="mb-3 text-gray-400">Este comando descarga y ejecuta el script de la herramienta directamente:</p>
+                        <div class="bg-gray-900 rounded-lg p-4 font-mono text-sm text-cyan-400 overflow-x-auto relative group">
+                            <pre><code>irm "https://christitus.com/win" | iex</code></pre>
+                            <button onclick="copyCommand(this)" class="absolute top-2 right-2 bg-gray-700 text-gray-300 p-2 rounded-md opacity-0 group-hover:opacity-100 transition-opacity" aria-label="Copiar comando">
+                                <i data-lucide="copy" class="w-4 h-4 copy-icon"></i>
+                                <i data-lucide="check" class="w-4 h-4 hidden text-green-400 check-icon"></i>
+                            </button>
                         </div>
-                    </li>
-                    <li class="flex items-start gap-4">
-                        <svg class="w-6 h-6 text-cyan-400 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M12 15l-4-4m4 4l4-4m-4 4V3"></path></svg>
-                        <div>
-                            <h4 class="font-semibold text-white text-lg">Ejecutar Windows Update</h4>
-                            <p>Después de instalar los drivers principales, ve a <strong class="text-cyan-400">Configuración > Windows Update</strong> y busca actualizaciones. Esto instalará parches de seguridad y puede que encuentre drivers adicionales.</p>
-                        </div>
-                    </li>
-                </ul>
+                    </div>
+                    <div class="pt-4">
+                        <a href="https://youtu.be/2UNvw8oE3kw" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 bg-red-600/80 text-white font-bold py-3 px-6 rounded-lg hover:bg-red-600 transition-colors text-base shadow-lg shadow-red-500/20">
+                            <i data-lucide="youtube" class="w-5 h-5"></i>
+                            Ver Videotutorial de la Herramienta
+                        </a>
+                    </div>
+                 </div>
             </section>
 
         </main>
 
         <!-- Footer -->
-        <footer class="text-center mt-12 py-4 border-t border-gray-700">
-            <p class="text-gray-500">Guía creada para una instalación limpia y eficiente.</p>
+        <footer class="text-center mt-16 pt-8 border-t border-white/10 fade-in-up" style="animation-delay: 700ms;">
+            <p class="text-gray-500">Guía creada para una instalación de Windows 11 limpia y eficiente.</p>
         </footer>
 
     </div>
+    
+    <script>
+        // --- Generación dinámica de tarjetas de herramientas ---
+        const tools = [
+            { name: 'Brave Browser', desc: 'Navegador rápido y privado con bloqueador de anuncios integrado.', url: 'https://brave.com/es/download/', icon: 'https://cdn.simpleicons.org/brave/ffffff' },
+            { name: 'VLC Media Player', desc: 'Reproductor multimedia universal. Soporta casi cualquier formato.', url: 'https://www.videolan.org/vlc/index.es.html', icon: 'https://cdn.simpleicons.org/vlcmediaplayer/ffffff' },
+            { name: 'WinRAR', desc: 'Potente compresor y descompresor de archivos. Esencial para .rar y .zip.', url: 'https://www.win-rar.com/download.html?&L=1', icon: 'https://img.icons8.com/color/96/winrar.png' },
+            { name: 'Everything', desc: 'Busca archivos y carpetas en tu PC de forma instantánea.', url: 'https://www.voidtools.com/downloads/', icon: 'search' },
+            { name: 'Steam', desc: 'La plataforma de videojuegos para PC más grande del mundo.', url: 'https://store.steampowered.com/about/', icon: 'https://cdn.simpleicons.org/steam/ffffff' },
+            { name: 'OBS Studio', desc: 'Software gratuito para grabación de video y transmisión en vivo.', url: 'https://obsproject.com/es', icon: 'https://cdn.simpleicons.org/obsstudio/ffffff' },
+            { name: 'CrystalDiskInfo', desc: 'Monitorea la salud y temperatura de tus discos duros y SSDs.', url: 'https://crystalmark.info/en/download/#CrystalDiskInfo', icon: 'hard-drive' },
+            { name: 'Display Driver Uninstaller', desc: 'Elimina por completo drivers de video para una instalación limpia.', url: 'https://www.guru3d.com/download/display-driver-uninstaller-download/', icon: 'eraser' },
+            { name: 'NVIDIA Drivers', desc: 'Obtén los últimos drivers para tu tarjeta gráfica NVIDIA.', url: 'https://www.nvidia.com/Download/index.aspx', icon: 'https://cdn.simpleicons.org/nvidia/ffffff' },
+            { name: 'AMD Drivers', desc: 'Descarga los drivers más recientes para tu tarjeta gráfica AMD.', url: 'https://www.amd.com/es/support', icon: 'https://cdn.simpleicons.org/amd/ffffff' },
+            { name: 'Reduce Memory', desc: 'Libera memoria RAM del sistema con un solo clic.', url: 'https://www.sordum.org/9197/reduce-memory-v1-7/', icon: 'memory-stick' },
+            { name: 'RAMMap', desc: 'Analiza en detalle el uso de la memoria física de tu sistema.', url: 'https://learn.microsoft.com/es-es/sysinternals/downloads/rammap', icon: 'microchip' },
+        ];
+        
+        const grid = document.getElementById('tools-grid');
 
+        // Construir el HTML de todas las tarjetas y luego insertarlo una sola vez
+        const cardsHtml = tools.map((tool, index) => {
+            const isLucideIcon = ['search', 'hard-drive', 'eraser', 'memory-stick', 'microchip'].includes(tool.icon);
+            const iconHtml = isLucideIcon
+                ? `<i data-lucide="${tool.icon}" class="w-12 h-12 text-white mb-4"></i>`
+                : `<img src="${tool.icon}" alt="Logo de ${tool.name}" class="w-12 h-12 mb-4 object-contain">`;
+
+            // Se añade la clase de animación y un retraso escalonado
+            const animationDelay = 500 + index * 50; // Empieza después de las secciones principales
+            return `
+                <div class="card-hover bg-gray-800 p-6 rounded-xl flex flex-col text-center items-center fade-in-up" style="animation-delay: ${animationDelay}ms;">
+                    ${iconHtml}
+                    <h4 class="text-lg font-bold text-white mb-2">${tool.name}</h4>
+                    <p class="text-sm text-gray-400 flex-grow mb-4">${tool.desc}</p>
+                    <a href="${tool.url}" target="_blank" rel="noopener noreferrer" class="mt-auto w-full bg-gray-700 text-white font-semibold py-2 px-4 rounded-lg hover:bg-gray-600 transition-colors">
+                        Descargar
+                    </a>
+                </div>
+            `;
+        }).join('');
+
+        grid.innerHTML = cardsHtml;
+
+
+        // --- Funcionalidades adicionales ---
+
+        // Renderiza todos los iconos de Lucide en la página
+        lucide.createIcons();
+
+        // Función para copiar el comando de PowerShell
+        function copyCommand(button) {
+            const commandText = button.parentElement.querySelector('pre code').innerText;
+            const copyIcon = button.querySelector('.copy-icon');
+            const checkIcon = button.querySelector('.check-icon');
+
+            const textArea = document.createElement('textarea');
+            textArea.value = commandText;
+            document.body.appendChild(textArea);
+            textArea.select();
+            try {
+                document.execCommand('copy');
+                copyIcon.classList.add('hidden');
+                checkIcon.classList.remove('hidden');
+                setTimeout(() => {
+                    copyIcon.classList.remove('hidden');
+                    checkIcon.classList.add('hidden');
+                }, 2000);
+            } catch (err) {
+                console.error('Error al copiar el comando: ', err);
+                // No usamos alert para no ser intrusivos
+            }
+            document.body.removeChild(textArea);
+        }
+    </script>
 </body>
 </html>
