@@ -10,6 +10,7 @@
     
     <!-- Google Fonts: Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="icon" href="https://i.imgur.com/HUhIujV.jpeg" type="image/jpeg">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     
@@ -19,10 +20,24 @@
 
     <style>
         /* Estilos base y personalizados */
-        body {
+        body, html {
             font-family: 'Inter', sans-serif;
             background-color: #111827; /* gray-900 */
             color: #d1d5db; /* gray-300 */
+        }
+
+        /* --- Ocultar barras de desplazamiento --- */
+        /* Para Chrome, Safari y Opera */
+        ::-webkit-scrollbar {
+            display: none;
+        }
+        /* Para Firefox */
+        html, body {
+            scrollbar-width: none;
+        }
+        /* Para IE, Edge */
+        html, body {
+            -ms-overflow-style: none;
         }
 
         /* Animación de entrada */
@@ -317,6 +332,12 @@
             }
             document.body.removeChild(textArea);
         }
+
+        // Deshabilitar clic derecho
+        document.addEventListener('contextmenu', event => event.preventDefault());
+
+        // Deshabilitar arrastrar y soltar
+        document.addEventListener('dragstart', event => event.preventDefault());
     </script>
 </body>
 </html>
